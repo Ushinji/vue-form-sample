@@ -1,31 +1,17 @@
 <template>
   <div>
-    <h1>Hello Vue 3!</h1>
-    <button @click="inc">Clicked {{ count }} times.</button>
+    <h1>ユーザー作成フォーム</h1>
+    <UserCreateForm />
   </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from "vue";
+import { ref, defineComponent } from 'vue';
+import UserCreateForm from '@/components/UserCreateForm/index.vue';
+
 export default defineComponent({
-  setup() {
-    const count = ref(0);
-    const inc = () => {
-      count.value++;
-    };
-    return {
-      count,
-      inc
-    };
-  }
+  components: {
+    UserCreateForm,
+  },
 });
 </script>
-
-<style scoped>
-img {
-  width: 200px;
-}
-h1 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-</style>
