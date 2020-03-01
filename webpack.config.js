@@ -11,8 +11,10 @@ module.exports = (env = {}) => ({
     publicPath: "/dist/"
   },
   resolve: {
+    extensions: [".js", ".ts", ".vue", ".css"],
     alias: {
-      vue: "@vue/runtime-dom"
+      vue: "@vue/runtime-dom",
+      "@": path.resolve(__dirname, "src")
     }
   },
   module: {
