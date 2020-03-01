@@ -1,4 +1,4 @@
-import { ref, computed } from "vue";
+import { ref, computed } from 'vue';
 
 const useField = (
   initialValue: string,
@@ -25,8 +25,8 @@ const useField = (
     props: { value, onInput, onBlur },
     meta: {
       isTouched,
-      error
-    }
+      error,
+    },
   };
 };
 
