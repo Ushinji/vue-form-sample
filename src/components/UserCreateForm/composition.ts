@@ -1,8 +1,7 @@
 import { ref, computed } from 'vue';
-
-import useField from '../Field/useField';
-import { presenceValidator, emailValidator } from '../../utils/validators';
-import sleep from '../../utils/sleep';
+import useField from '@src/components/Field/useField';
+import { presenceValidator, emailValidator } from '@src/utils/validators';
+import sleep from '@src/utils/sleep';
 
 const useUserCreateForm = () => {
   const userNameField = useField('', presenceValidator);
