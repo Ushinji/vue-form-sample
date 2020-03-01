@@ -68,7 +68,7 @@ export default defineComponent({
     const emailField = useField('', emailValidator);
 
     const onSubmit = async () => {
-      if (userNameField.meta.error.value && emailField.meta.error.value) {
+      if (userNameField.meta.error.value || emailField.meta.error.value) {
         return;
       }
       console.log(
