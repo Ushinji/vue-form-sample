@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
-import UserCreateForm from '@/components/UserCreateForm/index.vue';
+import UserCreateForm from '@src/components/UserCreateForm/index.vue';
 
 export default defineComponent({
   components: {
