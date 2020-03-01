@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <h1>ユーザー作成フォーム</h1>
-    <UserCreateForm />
-  </div>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">ユーザー作成フォーム</h1>
+      <UserCreateForm />
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
