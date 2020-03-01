@@ -8,7 +8,14 @@
             id="user-name"
             name="user-name"
             type="text"
-            class="input"
+            :class="[
+              {
+                'is-danger':
+                  userNameField.meta.isTouched.value &&
+                  userNameField.meta.error.value,
+              },
+              'input',
+            ]"
             :value="userNameField.props.value.value"
             @input="userNameField.props.onInput"
             @blur="userNameField.props.onBlur"
@@ -31,7 +38,14 @@
             id="email"
             name="email"
             type="email"
-            class="input"
+            :class="[
+              {
+                'is-danger':
+                  emailField.meta.isTouched.value &&
+                  emailField.meta.error.value,
+              },
+              'input',
+            ]"
             :value="emailField.props.value.value"
             @input="emailField.props.onInput"
             @blur="emailField.props.onBlur"
