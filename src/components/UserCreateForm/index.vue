@@ -62,7 +62,12 @@
       </div>
       <div class="field">
         <p class="control">
-          <button class="button is-success" type="submit" @click="onSubmit">
+          <button
+            class="button is-success"
+            type="submit"
+            @click="onSubmit"
+            :disabled="meta.error.value"
+          >
             作成する
           </button>
         </p>
@@ -72,26 +77,38 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue';
+import { ref, defineComponent, computed } from 'vue';
 import useField from '../Field/useField';
 import { presenceValidator, emailValidator } from '../../utils/validators';
 
+const useUserCreateForm = () => {
+  const userNameField = useField('', presenceValidator);
+  const emailField = useField('', emailValidator);
+  const error = computed(() => {
+    return userNameField.meta.error.value || emailField.meta.error.value;
+  });
+
+  const onSubmit = async () => {
+    if (error.value) {
+      return;
+    }
+    console.log(userNameField.props.value.value, emailField.props.value.value);
+  };
+
+  return {
+    userNameField,
+    emailField,
+    onSubmit,
+    meta: {
+      error,
+    },
+  };
+};
+
 export default defineComponent({
   setup() {
-    const userNameField = useField('', presenceValidator);
-    const emailField = useField('', emailValidator);
-
-    const onSubmit = async () => {
-      if (userNameField.meta.error.value || emailField.meta.error.value) {
-        return;
-      }
-      console.log(
-        userNameField.props.value.value,
-        emailField.props.value.value
-      );
-    };
-
-    return { userNameField, emailField, onSubmit };
+    const form = useUserCreateForm();
+    return { ...form };
   },
 });
 </script>
